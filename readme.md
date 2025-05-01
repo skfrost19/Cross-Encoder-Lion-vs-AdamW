@@ -21,17 +21,18 @@ Each model is trained for 3 epochs with both optimizers, and performance is trac
 ## Repository Structure
 
 ```
-├── ms_marco_val_mrr.py          # Evaluation script for MS MARCO validation set (MRR@10)
-├── trec_dl_19_eval_2.py         # Evaluation script for TREC DL 2019 dataset
-├── trainer.py                   # Main training script for cross-encoder models
-├── modal_trainer_offload.py     # Modal deployment script for cloud training
-├── trec_modal.py                # Modal deployment script for TREC evaluations
+├── ms_marco_val_mrr.py          # Script to evaluate Mean Reciprocal Rank (MRR@10) on MS MARCO validation set
+├── trec_dl_19_eval.py           # Script to evaluate models on TREC DL 2019 dataset
+├── trainer.py                   # Main script for training cross-encoder models
+├── modal_trainer_offload.py     # Script for cloud-based training using Modal with memory offloading
+├── trec_modal.py                # Script for distributed TREC evaluations using Modal
+├── requirements.txt             # List of Python dependencies for the project
+├── LICENSE                      # License file (MIT License)
 ├── eval_results/                # Directory containing evaluation results
 │   ├── mrrs.txt                 # Summary of MRR results across all models
 │   ├── modern_bert/             # ModernBERT results
 │   ├── mini_lm/                 # MiniLM results
 │   └── gte/                     # GTE results
-└── requirements.txt             # Required dependencies
 ```
 
 ## Installation
@@ -161,4 +162,3 @@ This repository is provided without a specific license. All rights reserved.
 	doi          = { 10.57967/hf/5312 },
 	publisher    = { Hugging Face }
 }
-```
