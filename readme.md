@@ -1,5 +1,5 @@
 # Cross-Encoder Lion vs AdamW
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15314687.svg)](https://doi.org/10.5281/zenodo.15314687)
 ## Overview
 
 This repository contains code for training and evaluating Cross-Encoder models using different optimizers (Lion and AdamW) for information retrieval tasks. The project tests the performance of these optimizers across different models (ModernBERT, MiniLM, GTE) and evaluates their effectiveness on standard benchmarks like MS MARCO and TREC DL 2019.
