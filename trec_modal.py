@@ -1,5 +1,8 @@
 import modal
 
+LOCAL_PATH = "D:\\Cross-Encoder-Lion-vs-AdamW"
+ROOT_PATH = "/root/cross-encoders"
+
 modal_volume = modal.Volume.from_name("cross-encoders", create_if_missing=True)
 
 cuda_version = "12.4.0"  # should be no greater than host CUDA version
@@ -28,7 +31,7 @@ image = (
         "faiss-cpu",
     )
     .run_commands("git clone https://github.com/usnistgov/trec_eval.git && cd trec_eval && make")
-).add_local_dir("D:\\Thesis\\4th Sem\\cross_encoder", remote_path="/root/cross_encoder")
+).add_local_dir(LOCAL_PATH, remote_path=ROOT_PATH)
 
 
 
@@ -49,7 +52,7 @@ def evaluate_model(model_path):
     print(f"Starting evaluation for model: {model_path}")
     MODEL_PATH, ext = model_path.split("/")
     print(MODEL_PATH, ext)
-    cmd = f"python /root/cross_encoder/trec_dl_19_eval_2.py --model_name {ALL_MODEL_PATH}/{MODEL_PATH}/{ext} --runs_dir {ALL_MODEL_PATH}/runs --results_dir {ALL_MODEL_PATH}/{MODEL_PATH}/results --cache_dir {MODEL_PATH}/cache --batch_size 1000"
+    cmd = f"python {ROOT_PATH}/trec_dl_19_eval.py --model_name {ALL_MODEL_PATH}/{MODEL_PATH}/{ext} --runs_dir {ALL_MODEL_PATH}/runs --results_dir {ALL_MODEL_PATH}/{MODEL_PATH}/results --cache_dir {MODEL_PATH}/cache --batch_size 1000"
     
     try:
         # Run in subprocess instead of using os.system()
@@ -89,7 +92,7 @@ def evaluate_trec_dl():
     os.makedirs(cache_dir, exist_ok=True)
     
     # Check if the source directory exists
-    pyserini_src = "/root/longformer_crossencoder/pyserini"
+    pyserini_src = "/root/cross-encoders/pyserini"
     if os.path.exists(pyserini_src):
         print(f"Source directory {pyserini_src} exists, creating symlink")
         # If cache_dir exists but is not a symlink, remove it
@@ -103,7 +106,7 @@ def evaluate_trec_dl():
         os.makedirs(cache_dir, exist_ok=True)
     
     # Check if ir_datasets source directory exists
-    ir_datasets_src = "/root/longformer_crossencoder/.ir_datasets"
+    ir_datasets_src = "/root/cross-encoders/.ir_datasets"
     ir_datasets_dest = os.path.expanduser("~/.ir_datasets")
     if os.path.exists(ir_datasets_src):
         print(f"IR datasets directory {ir_datasets_src} exists, creating symlink")

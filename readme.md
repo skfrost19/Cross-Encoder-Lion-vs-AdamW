@@ -148,4 +148,4 @@ This repository is provided without a specific license. All rights reserved.
 - The project uses the Hugging Face Transformers and Sentence-Transformers libraries
 - Training utilizes the MS MARCO dataset
 - Evaluation is performed using TREC DL 2019 and MS MARCO validation sets
-- Cloud execution is powered by Modal
+- Cloud execution is powered by [Modal](https://modal.com/)
