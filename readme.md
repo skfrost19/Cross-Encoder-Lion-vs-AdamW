@@ -149,3 +149,16 @@ This repository is provided without a specific license. All rights reserved.
 - Training utilizes the MS MARCO dataset
 - Evaluation is performed using TREC DL 2019 and MS MARCO validation sets
 - Cloud execution is powered by [Modal](https://modal.com/)
+
+
+## Model Citation
+```bibtex
+@misc{shahil_kumar_2025,
+	author       = { Shahil Kumar },
+	title        = { reranker-ModernBERT-base-msmarco-bce-Lion.Cosine-ep-1-3 (Revision 83f8efd) },
+	year         = 2025,
+	url          = { https://huggingface.co/skfrost19/reranker-ModernBERT-base-msmarco-bce-Lion.Cosine-ep-1-3 },
+	doi          = { 10.57967/hf/5312 },
+	publisher    = { Hugging Face }
+}
+```
